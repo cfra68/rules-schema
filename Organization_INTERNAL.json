@@ -1,5 +1,5 @@
 {
-  "$id": "Organization_CDISC.json",
+  "$id": "Organization_INTERNAL.json",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "Organization": {
