@@ -286,6 +286,9 @@
           },
           {
             "$ref": "Organization_PMDA.json"
+          },
+          {
+            "$ref": "Organization_INTERNAL.json"
           }
         ],
         "required": ["Organization", "Standards"],
