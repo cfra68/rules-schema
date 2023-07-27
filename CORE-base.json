@@ -137,10 +137,10 @@
       "type": "string"
     }
   },
-  "$id": "https://cdisc.org/CORE-base.json",
+  "$id": "https://internal.org/CORE-base.json",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "additionalProperties": false,
-  "markdownDescription": "Validation schema CDISC Rules 1.0",
+  "markdownDescription": "Validation schema INTERNAL Rules 1.0",
   "properties": {
     "Authorities": {
       "items": {
