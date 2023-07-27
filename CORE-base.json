@@ -279,9 +279,6 @@
         },
         "oneOf": [
           {
-            "$ref": "Organization_CDISC.json"
-          },
-          {
             "$ref": "Organization_INTERNAL.json"
           }
         ],
