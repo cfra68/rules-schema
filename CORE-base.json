@@ -282,12 +282,6 @@
             "$ref": "Organization_CDISC.json"
           },
           {
-            "$ref": "Organization_FDA.json"
-          },
-          {
-            "$ref": "Organization_PMDA.json"
-          },
-          {
             "$ref": "Organization_INTERNAL.json"
           }
         ],
