@@ -78,7 +78,12 @@
             "RELREC",
             "RELSPEC",
             "RELSUB",
-            "SUPP--"
+            "SUPP--",
+            "IE_GL_900_CS_2",
+            "AE_GL_901_CS_1",
+            "EX_GL_900A_CS_8",
+            "EX_GL_900A_CS_12",
+            "EX_GL_900A_CS_16"
           ],
           "type": "string"
         },
