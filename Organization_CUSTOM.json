@@ -2,9 +2,6 @@
   "$id": "Organization_CUSTOM.json",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
-    "LibraryRule": {
-                "enum": ["Y", "N"]
-              },
     "Organization": {
       "const": "SGS"
     },
