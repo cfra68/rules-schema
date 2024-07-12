@@ -515,7 +515,7 @@ Returns the permissible variables for a given domain and standard
 
 ## record_count
 
-Returns the number of records in the dataset
+If no 'filter' or 'group' is provided, returns the number of records in the dataset. If 'filter' is provided, returns the number of records in the dataset that contain the values(s) in the corresponding column(s) provided in the filter. If 'group' is provided, returns the number of rows matching each unique set of the grouping variables. If both 'filter' and 'group' are provided, returns the number of records in the dataset that contain the values(s) in the corresponding column(s) provided in the filter that also match each unique set of the grouping variables.
 
 ## required_variables
 
@@ -565,6 +565,29 @@ the operation will return
 
 ```json
 ["2023-10-26", "2023-12-13"]
+```
+
+## valid_external_dictionary_value
+
+Returns true if the target variable contains a valid external dictionary value, otherwise false
+
+Can be case insensitive by setting `case_sensitive` attribute to false. It is true by default.
+
+Input:
+
+```yaml
+- operation: valid_external_dictionary_value
+  name: --DECOD
+  id: $is_valid_decod_value
+  external_dictionary_type: meddra
+  dictionary_term_type: PT
+  case_sensitive: false
+```
+
+Output:
+
+```json
+[true, false, false, true]
 ```
 
 ## valid_meddra_code_references

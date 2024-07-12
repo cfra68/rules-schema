@@ -66,6 +66,10 @@ ItemGroupDef.ItemDef.DataType
 
 ItemGroupDef.ItemDef.CodeListRef exists
 
+## define_variable_has_comment
+
+ItemGroupDef.ItemDef.CommentOID exists
+
 ## define_variable_has_no_data
 
 ItemGroupDef.ItemRef.HasNoData
@@ -81,6 +85,10 @@ ItemGroupDef.ItemDef.Description.TranslatedText
 ## define_variable_length
 
 ItemGroupDef.ItemDef.Length
+
+## define_variable_mandatory
+
+ItemGroupDef.ItemRef.Mandatory
 
 ## define_variable_name
 
@@ -126,6 +134,10 @@ ValueListDef.ItemDef.DataType
 
 ValueListDef.ItemDef.CodeListRef exists
 
+## define_vlm_has_comment
+
+ValueListDef.ItemDef.CommentOID exists
+
 ## define_vlm_has_no_data
 
 ValueListDef.ItemRef.HasNoData
@@ -141,6 +153,10 @@ ValueListDef.ItemDef.Description.TranslatedText
 ## define_vlm_length
 
 ValueListDef.ItemDef.Length
+
+## define_vlm_mandatory
+
+ValueListDef.ItemRef.Mandatory
 
 ## define_vlm_name
 
@@ -166,6 +182,30 @@ ValueListDef.ItemDef.Size
 
 Name of file
 
+## library_variable_core
+
+core attribute of a variable from the CDISC Library
+
+## library_variable_data_type
+
+simpleDatatype attribute of a variable from the CDISC Library
+
+## library_variable_label
+
+label attribute of a variable from the CDISC Library
+
+## library_variable_name
+
+name attribute of a variable from the CDISC Library
+
+## library_variable_order_number
+
+ordinal attribute of a variable from the CDISC Library
+
+## library_variable_role
+
+role attribute of a variable from the CDISC Library
+
 ## row_number
 
 1-based index of record number
@@ -177,6 +217,10 @@ Variable data type (Char or Num)
 ## variable_format
 
 Variable format
+
+## variable_has_empty_values
+
+True/False value indicating whether a variable has any empty values
 
 ## variable_label
 

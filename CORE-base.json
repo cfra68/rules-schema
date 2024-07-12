@@ -78,12 +78,7 @@
             "RELREC",
             "RELSPEC",
             "RELSUB",
-            "SUPP--",
-            "IE_GL_900_CS_2",
-            "AE_GL_901_CS_1",
-            "EX_GL_900A_CS_8",
-            "EX_GL_900A_CS_12",
-            "EX_GL_900A_CS_16"
+            "SUPP--"
           ],
           "type": "string"
         },
@@ -122,6 +117,31 @@
       "items": {
         "$ref": "#/$defs/Dataset"
       },
+      "type": "array"
+    },
+    "JoinType": {
+      "enum": ["inner", "left"],
+      "type": "string"
+    },
+    "LeftRightKeys": {
+      "additionalProperties": false,
+      "properties": {
+        "Left": {
+          "$ref": "#/$defs/VariableName"
+        },
+        "Right": {
+          "$ref": "#/$defs/VariableName"
+        }
+      },
+      "required": ["Left", "Right"],
+      "type": "object"
+    },
+    "PascalCases": {
+      "items": {
+        "pattern": "^[A-Z](([a-z]+[A-Z]?)*)$",
+        "type": "string"
+      },
+      "minItems": 1,
       "type": "array"
     },
     "Subclasses": {
@@ -283,8 +303,17 @@
           }
         },
         "oneOf": [
+		  {
+            "$ref": "Organization_CUSTOM.json"
+          },
           {
-            "$ref": "Organization_INTERNAL.json"
+            "$ref": "Organization_CDISC.json"
+          },
+          {
+            "$ref": "Organization_FDA.json"
+          },
+          {
+            "$ref": "Organization_PMDA.json"
           }
         ],
         "required": ["Organization", "Standards"],
@@ -332,6 +361,7 @@
     "Executability": {
       "enum": [
         "Fully Executable",
+        "Not Executable",
         "Partially Executable",
         "Partially Executable - Possible Overreporting",
         "Partially Executable - Possible Underreporting"
@@ -357,12 +387,25 @@
           },
           "Keys": {
             "items": {
-              "$ref": "#/$defs/VariableName"
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/VariableName"
+                },
+                {
+                  "$ref": "#/$defs/LeftRightKeys"
+                }
+              ]
             },
             "type": "array"
+          },
+          "Join Type": {
+            "$ref": "#/$defs/JoinType"
+          },
+          "Wildcard": {
+            "type": "string"
           }
         },
-        "required": ["Name", "Keys"],
+        "required": ["Name"],
         "type": "object"
       },
       "minItems": 1,
@@ -398,7 +441,7 @@
       "additionalProperties": false,
       "properties": {
         "Classes": {
-          "oneOf": [
+          "anyOf": [
             {
               "additionalProperties": false,
               "properties": {
@@ -472,6 +515,30 @@
           },
           "type": "object"
         },
+        "Entities": {
+          "anyOf": [
+            {
+              "additionalProperties": false,
+              "properties": {
+                "Exclude": {
+                  "$ref": "#/$defs/PascalCases"
+                },
+                "Include": {
+                  "$ref": "#/$defs/PascalCases"
+                }
+              },
+              "anyOf": [
+                {
+                  "required": ["Exclude"]
+                },
+                {
+                  "required": ["Include"]
+                }
+              ],
+              "type": "object"
+            }
+          ]
+        },
         "Subclasses": {
           "additionalProperties": false,
           "properties": {
@@ -491,6 +558,9 @@
         },
         {
           "required": ["Data Structures"]
+        },
+        {
+          "required": ["Entities"]
         }
       ],
       "type": "object"

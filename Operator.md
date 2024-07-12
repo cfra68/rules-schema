@@ -142,7 +142,7 @@ Regular Expression value matching
 - Determine if each string starts with a match of a regular expression. Refer to this pandas documentation: https://pandas.pydata.org/docs/reference/api/pandas.Series.str.match.html
 - To "search" for a regex within the entire text, prefix the regex with `.*` and do not use anchors `^` , `$`
 - To do a "fullmatch" of a regex with the entire text, suffix the regex with an anchor `$` and do not prefix the regex with `.*`
-- For syntax guide, refer to this Python documentation: [Regular Expression HOWTO](https://docs.python.org/3.7/howto/regex.html).
+- For syntax guide, refer to this Python documentation: [Regular Expression HOWTO](https://docs.python.org/3/howto/regex.html).
 - Suggestion for an on-line regular expression logic. tester: https://regex101.com, choose the Python dialect.
 - For regex token visualization, try https://www.debuggex.com.
 
@@ -753,7 +753,7 @@ Complement of `is_unique_set`
 
 ## present_on_multiple_rows_within
 
-True if the same value of `name` is present on multiple rows, grouped by `within`. A specific value can be indicated by `value`
+True if the same value of `name` is present on multiple rows, grouped by `within`. A maximum allowed number of occurrences can be specified in the value attribute. In this instance the value: 4 means that an error will be flagged if the same value appears more than 4 times within a USUBJID. By default the operator will flag any time a value appears more than once.
 
 ```yaml
 - operator: "present_on_multiple_rows_within"
@@ -861,11 +861,12 @@ Check:
 
 ## empty_within_except_last_row
 
-> SEENDTC is not empty when it is not the last record, grouped by USUBJID
+> SEENDTC is not empty when it is not the last record, grouped by USUBJID, sorted by SESTDTC
 
 ```yaml
 - name: SEENDTC
   operator: empty_within_except_last_row
+  ordering: SESTDTC
   value: USUBJID
 ```
 

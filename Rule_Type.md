@@ -94,6 +94,37 @@ any:
 - `define_variable_order_number`
 - `define_variable_has_codelist`
 - `define_variable_codelist_coded_values`
+- `define_variable_has_comment`
+
+#### Rule Macro
+
+Attach variable codelist and codelist terms
+
+## Define Item Metadata Check against Library Metadata
+
+#### Columns
+
+- `define_variable_name`
+- `define_variable_label`
+- `define_variable_data_type`
+- `define_variable_role`
+- `define_variable_size`
+- `define_variable_ccode`
+- `define_variable_format`
+- `define_variable_allowed_terms`
+- `define_variable_origin_type`
+- `define_variable_is_collected`
+- `define_variable_has_no_data`
+- `define_variable_order_number`
+- `define_variable_has_codelist`
+- `define_variable_codelist_coded_values`
+- `define_variable_has_comment`
+- `library_variable_name`
+- `library_variable_order_number`
+- `library_variable_label`
+- `library_variable_data_type`
+- `library_variable_role`
+- `library_variable_core`
 
 #### Rule Macro
 
@@ -171,11 +202,26 @@ all:
 - `row_number`
 - `variable_name`
 - `variable_value`
-- `define_variable_name`
 - `define_vlm_name`
 - `define_vlm_label`
 - `define_vlm_data_type`
-- `define_vlm_`...
+- `define_vlm_is_collected`
+- `define_vlm_role`
+- `define_vlm_size`
+- `define_vlm_ccode`
+- `define_vlm_format`
+- `define_vlm_allowed_terms`
+- `define_vlm_origin_type`
+- `define_vlm_has_no_data`
+- `define_vlm_order_number`
+- `define_vlm_length`
+- `define_vlm_has_codelist`
+- `define_vlm_codelist_coded_values`
+- `define_vlm_mandatory`
+- `define_variable_name`
+- `type_check`
+- `length_check`
+- `variable_value_length`
 
 #### Example
 
@@ -191,6 +237,15 @@ all:
   - name: variable_value
     operator: is_not_contained_by
     value: define_vlm_codelist_coded_values
+```
+
+```yaml
+all:
+  - name: variable_value
+    operator: empty
+  - name: define_vlm_mandatory
+    operator: equal_to
+    value: Yes
 ```
 
 ## Value Level Metadata Check against Define XML
@@ -245,3 +300,21 @@ Attach define xml metadata at variable level
   operator: not_equal_to
   value: define_variable_name
 ```
+
+## Variable Metadata Check against Library Metadata
+
+#### Columns
+
+- `variable_name`
+- `variable_order_number`
+- `variable_label`
+- `variable_size`
+- `variable_data_type`
+- `variable_format`
+- `variable_has_empty_values`
+- `library_variable_name`
+- `library_variable_order_number`
+- `library_variable_label`
+- `library_variable_data_type`
+- `library_variable_role`
+- `library_variable_core`
