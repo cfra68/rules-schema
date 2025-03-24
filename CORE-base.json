@@ -76,6 +76,7 @@
             "APRELSUB",
             "POOLDEF",
             "RELREC",
+            "RELREF",
             "RELSPEC",
             "RELSUB",
             "SUPP--"
@@ -118,6 +119,21 @@
         "$ref": "#/$defs/Dataset"
       },
       "type": "array"
+    },
+    "DomainStructure": {
+      "additionalProperties": false,
+      "properties": {
+        "Exclude": {
+          "$ref": "#/$defs/Domains"
+        },
+        "Include": {
+          "$ref": "#/$defs/Domains"
+        },
+        "include_split_datasets": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
     },
     "JoinType": {
       "enum": ["inner", "left"],
@@ -167,8 +183,7 @@
   "additionalProperties": false,
   "markdownDescription": "Validation schema CDISC Rules 1.0",
   "properties": {
-    "LibraryRule": {"enum": ["Y", "N"] },
-	  "Authorities": {
+    "Authorities": {
       "items": {
         "additionalProperties": false,
         "properties": {
@@ -294,6 +309,9 @@
                 },
                 "Version": {
                   "type": "string"
+                },
+                "Substandard": {
+                  "type": "string"
                 }
               },
               "required": ["Name", "References", "Version"],
@@ -301,12 +319,14 @@
             },
             "minItems": 1,
             "type": "array"
+          },
+          "Category": {
+            "type": "object",
+            "description": "Custom categorization for rule governance defined in Organization_Custom.json",
+            "additionalProperties": true
           }
         },
         "oneOf": [
-		  {
-            "$ref": "Organization_CUSTOM.json"
-          },
           {
             "$ref": "Organization_CDISC.json"
           },
@@ -314,7 +334,7 @@
             "$ref": "Organization_FDA.json"
           },
           {
-            "$ref": "Organization_PMDA.json"
+            "$ref": "Organization_Custom.json"
           }
         ],
         "required": ["Organization", "Standards"],
@@ -502,19 +522,13 @@
           "type": "object"
         },
         "Domains": {
-          "additionalProperties": false,
-          "properties": {
-            "Exclude": {
-              "$ref": "#/$defs/Domains"
-            },
-            "Include": {
-              "$ref": "#/$defs/Domains"
-            },
-            "include_split_datasets": {
-              "type": "boolean"
-            }
-          },
-          "type": "object"
+          "$ref": "#/$defs/DomainStructure"
+        },
+        "Dataset or Domain or Item Group": {
+          "$ref": "#/$defs/DomainStructure"
+        },
+        "Use Case": {
+          "type": "string"
         },
         "Entities": {
           "anyOf": [

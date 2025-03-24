@@ -6,6 +6,33 @@
     {
       "properties": {
         "operator": {
+          "const": "codelist_extensible"
+        }
+      },
+      "required": ["id", "operator", "codelist"],
+      "type": "object"
+    },
+    {
+      "properties": {
+        "operator": {
+          "const": "codelist_terms"
+        }
+      },
+      "required": ["id", "operator", "codelists", "level", "returntype"],
+      "type": "object"
+    },
+    {
+      "properties": {
+        "operator": {
+          "const": "define_extensible_codelists"
+        }
+      },
+      "required": ["id", "operator", "codelists"],
+      "type": "object"
+    },
+    {
+      "properties": {
+        "operator": {
           "const": "define_variable_metadata"
         }
       },
@@ -200,6 +227,13 @@
     },
     {
       "properties": {
+        "operator": { "const": "dataset_names" }
+      },
+      "required": ["id", "operator"],
+      "type": "object"
+    },
+    {
+      "properties": {
         "operator": {
           "const": "valid_codelist_dates"
         }
@@ -207,6 +241,16 @@
       "required": ["id", "operator"],
       "type": "object"
     },
+    {
+      "properties": {
+        "operator": {
+          "const": "valid_define_external_dictionary_version"
+        }
+      },
+      "required": ["id", "operator", "external_dictionary_type"],
+      "type": "object"
+    },
+
     {
       "properties": {
         "operator": {
@@ -219,6 +263,36 @@
         "name",
         "external_dictionary_type",
         "dictionary_term_type"
+      ],
+      "type": "object"
+    },
+    {
+      "properties": {
+        "operator": {
+          "const": "valid_external_dictionary_code"
+        }
+      },
+      "required": [
+        "id",
+        "operator",
+        "name",
+        "external_dictionary_type",
+        "dictionary_term_type"
+      ],
+      "type": "object"
+    },
+    {
+      "properties": {
+        "operator": {
+          "const": "valid_external_dictionary_code_term_pair"
+        }
+      },
+      "required": [
+        "id",
+        "operator",
+        "name",
+        "external_dictionary_type",
+        "external_dictionary_term_variable"
       ],
       "type": "object"
     },
@@ -321,6 +395,15 @@
     "case_sensitive": {
       "type": "boolean"
     },
+    "codelist": {
+      "type": "string"
+    },
+    "codelists": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
     "ct_attribute": {
       "type": "string"
     },
@@ -356,6 +439,12 @@
       },
       "type": "array"
     },
+    "group_aliases": {
+      "items": {
+        "$ref": "CORE-base.json#/$defs/VariableName"
+      },
+      "type": "array"
+    },
     "id": {
       "type": "string"
     },
@@ -375,6 +464,14 @@
     },
     "key_value": {
       "type": "string"
+    },
+    "level": {
+      "type": "string",
+      "enum": ["codelist", "term"]
+    },
+    "returntype": {
+      "type": "string",
+      "enum": ["code", "value"]
     },
     "name": {
       "type": "string"

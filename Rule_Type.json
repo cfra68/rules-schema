@@ -7,6 +7,10 @@
       "title": "Content data at record level, define xml metadata at variable level, and library metadata at variable level"
     },
     {
+      "const": "Dataset Contents Check against Define XML",
+      "title": "Content data at record level, dataset metadata at dataset level, and define xml metadata at dataset level"
+    },
+    {
       "const": "Dataset Metadata Check",
       "title": "Content metadata at dataset level"
     },
@@ -58,6 +62,10 @@
     {
       "const": "Variable Metadata Check against Library Metadata",
       "title": "Content metadata at the variable level and the corresponding library metadata"
+    },
+    {
+      "const": "Variable Metadata Check against Define XML and Library Metadata",
+      "title": "Combines metadata at the variable level with corresponding define-xml metadata at variable level and corresponding library variable metadata"
     }
   ],
   "markdownDescription": "Determines how the primary dataset should be built before the rule is applied"
