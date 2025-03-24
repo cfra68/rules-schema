@@ -1,19 +1,11 @@
 {
   "$id": "Trials.json",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "anyOf": [
-    {
-      "const": "TR001"
-    },
-    {
-      "const": "TR002"
-    },
-    {
-      "const": "TR003"
-    },
-    {
-      "const": "TR004"
-    }
+  "enum": [
+    "TR001",
+    "TR002",
+    "TR003",
+    "TR004"
   ],
   "markdownDescription": "Trial"
 }
