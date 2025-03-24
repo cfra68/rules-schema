@@ -103,7 +103,7 @@
 			"type": "array",
 			"description": "trials",
 			"items": {
-				"type": "string"
+				"$ref": "Trials.json"
 			}
 		},
         "Purpose": {
