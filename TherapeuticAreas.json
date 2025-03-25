@@ -2,6 +2,7 @@
   "$id": "TherapeuticAreas.json",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "enum": [
+    "ALL",
 "Alzheimer Disease",
 "Antiparasitiar",
 "Autoimmune",
