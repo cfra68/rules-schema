@@ -80,8 +80,7 @@
           "type": "array",
           "description": "List of sponsors the rule applies to",
           "items": {
-            "type": "string",
-            "enum": ["ALL", "JNJ", "ARGENX"]
+            "$ref": "Sponsors.json"
           }
         },
         "Vendors": {
@@ -95,7 +94,7 @@
           "type": "array",
           "description": "List of therapeutic areas the rule applies to",
           "items": {
-            "type": "string"
+            "$ref": "TherapeuticAreas.json"
           }
         },
         "Trials": 	{
