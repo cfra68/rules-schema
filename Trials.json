@@ -2,7 +2,8 @@
   "$id": "Trials.json",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "enum": [
-"17000139BLC2001",
+"ALL",
+    "17000139BLC2001",
 "17000139BLC3001",
 "17000139BLC3002",
 "17000139BLC3002-8253",
