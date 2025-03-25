@@ -65,7 +65,7 @@
                   "required": ["Id"]
                 }
               },
-              "required": ["Citations", "Origin", "Rule Identifier"]
+              "required": ["Origin", "Rule Identifier"]
             }
           }
         },
