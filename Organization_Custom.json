@@ -42,8 +42,7 @@
                       "Cited Guidance": {
                         "type": "string"
                       }
-                    },
-                    "required": ["Cited Guidance"]
+                    }
                   }
                 },
                 "Origin": {
