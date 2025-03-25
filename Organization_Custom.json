@@ -41,7 +41,10 @@
                     "properties": {
                       "Cited Guidance": {
                         "type": "string"
-                      }
+                      },
+                          "Document": {
+                            "const": "CDISC"
+                          }
                     }
                   }
                 },
