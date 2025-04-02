@@ -1,0 +1,11 @@
+{
+  "$id": "TherapeuticAreas.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "enum": [
+    "ALL",
+"AREA1",
+"AREA2",
+"AREA3"
+  ],
+  "markdownDescription": "TherapeuticArea"
+}

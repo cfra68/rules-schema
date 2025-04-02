@@ -1,0 +1,10 @@
+{
+  "$id": "Trials.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "enum": [
+"ALL",
+    "TRIAL1",
+"TRIAL2",
+"TRIAL3"  ],
+  "markdownDescription": "Trial"
+}

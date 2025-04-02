@@ -1,0 +1,168 @@
+{
+  "$id": "Organization_Custom.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Custom Organization Schema",
+  "description": "Schema for defining custom organizations and their rule categorization structure",
+  "$comment": "Version: 1.0.0, Last Updated: 2025-03-09",
+  "properties": {
+    "Organization": {
+      "const": "SGS"
+    },
+    "Standards": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "Name": {
+            "const": "SGSIG",
+            "description": "Name of the standard"
+          },
+          "Version": {
+            "type": "string",
+            "enum": ["3.3", "3.4"],
+            "description": "Version of the standard"
+          },
+          "Substandard": {
+            "type": "string",
+            "description": "Optional substandard name"
+          },
+          "References": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "properties": {
+                "Citations": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "Cited Guidance": {
+                        "type": "string"
+                      },
+                          "Document": {
+                            "const": "SGS"
+                          }
+                    }
+                  }
+                },
+                "Origin": {
+                  "type": "string",
+                  "enum": ["DM", "SD", "SD, DM"],
+                  "description": "Origin of the rule (Department)"
+                },
+                "Rule Identifier": {
+                  "type": "object",
+                  "properties": {
+                    "Id": {
+                      "type": "string",
+                      "description": "Custom rule identifier pattern"
+                    },
+                    "Version": {
+                      "type": "string",
+                      "description": "Version of the rule"
+                    }
+                  },
+                  "required": ["Id"]
+                }
+              },
+              "required": ["Origin", "Rule Identifier"]
+            }
+          }
+        },
+        "required": ["Name", "References", "Version"]
+      }
+    },
+    "Category": {
+      
+      "description": "Custom categorization for rule governance",
+      "properties": {
+        "Sponsors": {
+          "type": "array",
+          "description": "List of sponsors the rule applies to",
+          "items": {
+            "$ref": "Sponsors.json"
+          }
+        },
+        "Vendors": {
+          "type": "array",
+          "description": "List of vendors the rule applies to",
+          "items": {
+            "type": "string"
+          }
+        },
+        "TherapeuticAreas": {
+          "type": "array",
+          "description": "List of therapeutic areas the rule applies to",
+          "items": {
+            "$ref": "TherapeuticAreas.json"
+          }
+        },
+        "Trials": 	{
+			"type": "array",
+			"description": "trials",
+			"items": {
+				"$ref": "Trials.json"
+			}
+		},
+        "Purpose": {
+          "type": "string",
+          "enum": ["Conformance", "External Data", "Data Review"],
+          "description": "Specific purpose of the rule"
+        },
+        "CompanyRuleLibrary": {
+          "type": "boolean",
+          "const": true,
+          "description": "Whether the rule is part of a company rule library"
+        },
+        "OutputType": {
+          "type": "string",
+          "enum": ["Check", "Listing"],
+          "description": "Output type of the rule validation result"
+        },
+        "Keywords": {
+          "type": "array",
+          "description": "Custom keywords for further categorization",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+	  "additionalProperties": false,
+      "required": ["Sponsors", "Trials", "TherapeuticAreas", "Purpose", "OutputType"],
+      "if": {
+        "properties": { "Purpose": { "const": "External Data" } }
+      },
+      "then": {
+        "required": ["Vendors"]
+      }
+    }
+  },
+  "required": ["Organization", "Standards", "Category"],
+  "type": "object",
+    "$defs": {
+    "metadata": {
+      "schemaVersion": "1.0.0",
+      "releaseDate": "2025-03-09",
+      "changelog": [
+        {
+          "version": "1.0.0",
+          "date": "2025-03-09",
+          "description": "Initial release of Custom Organization Schema",
+          "changes": [
+            "Added Category object structure with standard properties",
+            "Implemented support for Sponsors, Vendors, TherapeuticAreas arrays",
+            "Added support for X, Y  and Z enum",
+            "Enabled extensibility with additionalProperties: true"
+          ]
+        }
+      ],
+      "maintainer": {
+        "name": "Your Organization Name",
+        "email": "standards@yourorganization.com"
+      }
+    }
+  }
+}

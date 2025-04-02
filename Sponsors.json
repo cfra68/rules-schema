@@ -1,0 +1,10 @@
+{
+  "$id": "Sponsors.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "enum": [
+"ALL",
+    "SPONSOR1",
+"SPONSOR2",
+"SPONSOR3"  ],
+  "markdownDescription": "Sponsor"
+}	
