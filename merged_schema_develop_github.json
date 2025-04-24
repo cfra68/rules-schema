@@ -3646,7 +3646,7 @@
         {
           "properties": {
             "Id": {
-              "pattern": "^CORE-\\d{6}$",
+              "pattern": "^(CORE|SGS)-\\d{6}$",
               "type": "string"
             },
             "Status": {
