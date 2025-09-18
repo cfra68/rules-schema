@@ -22,7 +22,7 @@
                             "CHIESI",
                             "DEBIO",
                             "JNJPH",
-                            "LIGHTSGS",
+                            "LIGHTSGSIG",
                             "SANOFI",
                             "NAP"
                         ],
@@ -303,4 +303,5 @@
           }
         }
     }
+
 }
