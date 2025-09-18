@@ -224,8 +224,14 @@
                 "TherapeuticAreas",
                 "Purpose",
                 "OutputType",
-                "GeneralDescription"
-            ],
+                "GeneralDescription",
+				"CompanyRuleLibrary",
+				"QcStage",
+				"LiveStage",
+				"BlindedData",
+				"KeepDeletedRows",
+				"MandatoryReplace"
+				            ],
 			
 				"allOf": [
 				{
@@ -305,3 +311,4 @@
     }
 
 }
+
